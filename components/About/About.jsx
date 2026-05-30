@@ -9,28 +9,29 @@ gsap.registerPlugin(ScrollTrigger);
 
 // --- Realistic placeholder content. Swap with your real details. -------
 const LEAD = [
-  "I treat the browser",
-  "like a film set —",
-  "lighting, motion and pace",
-  "in service of one feeling.",
+  "I build systems",
+  "that turn data",
+  "into decisions —",
+  "and intelligence.",
 ];
 
 const SKILLS = [
-  "React",
-  "Next.js",
-  "Three.js",
-  "WebGL / GLSL",
-  "GSAP",
-  "TypeScript",
-  "Motion Design",
-  "Node.js",
-  "CSS Architecture",
-  "Design Systems",
+  "Python",
+  "PyTorch",
+  "TensorFlow",
+  "OpenCV",
+  "Computer Vision",
+  "Deep Learning",
+  "Machine Learning",
+  "FastAPI",
+  "Docker",
+  "AWS / GCP",
+  "MLOps",
 ];
 
 const DETAILS = [
   { label: "Based in", value: "India · Remote" },
-  { label: "Focus", value: "Frontend · Motion · 3D" },
+  { label: "Focus", value: "AI · Computer Vision · ML Systems" },
   { label: "Currently", value: "Open to select work" },
 ];
 
@@ -155,17 +156,26 @@ export default function About({
 
           <div className={styles.copy}>
             <p className={styles.body} data-reveal>
-              I&rsquo;m a frontend engineer drawn to the seam between design and
-              code — where a well-timed transition stops feeling like an
-              interface and starts feeling like a moment. I build for the web
-              with React and Next.js, and reach for Three.js and GSAP when a
-              screen needs depth, atmosphere and rhythm.
+              I&rsquo;m an AI and software engineer fascinated by how
+              intelligent systems can bridge the gap between data and
+              decision-making. My work revolves around building machine learning
+              and computer vision solutions that move beyond research
+              environments and deliver value in real-world settings.
             </p>
             <p className={styles.body} data-reveal>
-              My work lives in the details most people only feel: easing curves,
-              type that breathes, motion that earns its place. The goal is never
-              decoration — it&rsquo;s an experience someone remembers a day
-              later.
+              From designing object detection and tracking pipelines to
+              developing data-driven applications and cloud-based systems, I
+              enjoy solving problems that require both technical depth and
+              practical thinking. I&rsquo;m particularly interested in the
+              engineering challenges behind deploying AI at scale — where model
+              performance, reliability, and user impact matter as much as the
+              algorithms themselves.
+            </p>
+            <p className={styles.body} data-reveal>
+              What drives me is the opportunity to transform complex data into
+              systems that can automate tasks, uncover insights, and augment
+              human decision-making. Every project is an opportunity to learn,
+              build, and create technology that is both intelligent and useful.
             </p>
 
             <dl className={styles.details}>

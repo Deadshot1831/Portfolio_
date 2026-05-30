@@ -7,13 +7,13 @@ import styles from "./Contact.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// --- Swap these placeholders with your real links. --------------------
-const EMAIL = "hello@yashwantyadav.dev";
+const EMAIL = "yadavyeshwant6166@gmail.com";
 const SOCIALS = [
-  { label: "GitHub", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "X / Twitter", href: "#" },
-  { label: "Dribbble", href: "#" },
+  { label: "GitHub", href: "https://github.com/Deadshot1831" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/yashwant-yadav-174aa12b2/",
+  },
 ];
 
 export default function Contact({

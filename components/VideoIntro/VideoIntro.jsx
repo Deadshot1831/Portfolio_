@@ -12,8 +12,8 @@ export default function VideoIntro({
   poster = "/hero-poster.jpg",
   firstName = "Yashwant",
   lastName = "Yadav",
-  tagline = "Frontend Engineer · Cinematic Web",
-  subtitle = "I build immersive, high-craft interfaces — blending motion design, 3D and front-end engineering into experiences that feel alive.",
+  tagline = "AI & Software Engineer · ML · Computer Vision",
+  subtitle = "I build machine learning and computer vision systems that turn complex data into reliable, real-world decisions — from detection pipelines to cloud-scale deployment.",
   scrollTargetId = "about",
 }) {
   const foregroundRef = useRef(null);

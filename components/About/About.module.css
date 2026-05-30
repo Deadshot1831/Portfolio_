@@ -46,7 +46,7 @@
   line-height: 1.02;
   letter-spacing: -0.03em;
   color: var(--ink);
-  max-width: 18ch;
+  max-width: 24ch;
 }
 
 .leadMask {
@@ -75,7 +75,7 @@
 
 /* ---- Two-column grid ---- */
 .grid {
-  margin-top: clamp(3rem, 9vh, 6rem);
+  margin-top: clamp(2.4rem, 6vh, 4.5rem);
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;
   gap: clamp(2rem, 5vw, 4.5rem);

@@ -9,10 +9,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 // --- Realistic placeholder content. Swap with your real details. -------
 const LEAD = [
-  "I build systems",
-  "that turn data",
-  "into decisions —",
-  "and intelligence.",
+  "I build intelligent",
+  "systems that turn data",
+  "into real decisions.",
 ];
 
 const SKILLS = [

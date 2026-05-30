@@ -77,14 +77,20 @@ export default function Contact({
 
         <h2 className={styles.cta}>
           <span className={styles.lineMask}>
-            <span className={styles.line}>Let&rsquo;s make</span>
+            <span className={styles.line}>Let&rsquo;s build</span>
           </span>
           <span className={styles.lineMask}>
             <span className={`${styles.line} ${styles.lineAccent}`}>
-              something cinematic.
+              something intelligent.
             </span>
           </span>
         </h2>
+
+        <p className={styles.intro} data-reveal>
+          Have a problem worth solving with AI, computer vision or data? I&rsquo;m
+          always open to new ideas, collaborations and roles where intelligent
+          systems can make a real-world difference.
+        </p>
 
         <a className={styles.email} href={`mailto:${email}`} data-reveal>
           {email}

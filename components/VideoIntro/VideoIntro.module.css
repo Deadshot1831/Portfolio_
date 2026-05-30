@@ -1,0 +1,340 @@
+/* ============================================================
+   VideoIntro — fullscreen sticky cinematic hero
+   ============================================================ */
+
+.hero {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 560px;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg-warm);
+  /* Whole stage fades + settles in on load */
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1.2s var(--ease-cine), transform 1.6s var(--ease-cine);
+}
+
+.hero[data-ready="true"] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---- Media stack --------------------------------------------------- */
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Blurred duplicate as the ambient backplate — fills the frame, bleeds color */
+.ambient {
+  position: absolute;
+  inset: -8%;
+  width: 116%;
+  height: 116%;
+  object-fit: cover;
+  filter: blur(46px) saturate(1.5) brightness(0.7);
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+/* Sharp foreground talking-head video, centered */
+.foreground {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+/* Cinematic dark grade for legibility: warm top, deep bottom, edge vignette,
+   plus a soft monitor-blue rim glow on the right. */
+.grade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      to bottom,
+      rgba(6, 5, 8, 0.72) 0%,
+      rgba(6, 5, 8, 0.12) 26%,
+      rgba(6, 5, 8, 0.2) 58%,
+      rgba(6, 5, 8, 0.86) 100%
+    ),
+    radial-gradient(
+      120% 80% at 18% 88%,
+      var(--orange-glow) 0%,
+      transparent 46%
+    ),
+    radial-gradient(90% 70% at 100% 18%, var(--blue-glow) 0%, transparent 50%),
+    radial-gradient(140% 120% at 50% 50%, transparent 52%, rgba(4, 3, 6, 0.7) 100%);
+}
+
+/* ---- Particle canvas overlay --------------------------------------- */
+.particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* whisper of extra blur for dreamy bokeh */
+  filter: blur(0.4px);
+}
+
+/* ---- Landing content ----------------------------------------------- */
+.content {
+  position: absolute;
+  z-index: 2;
+  left: clamp(1.4rem, 6vw, 7rem);
+  bottom: clamp(5.5rem, 16vh, 11rem);
+  max-width: min(92vw, 60rem);
+}
+
+.tagline {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(0.66rem, 1.1vw, 0.82rem);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--orange-soft);
+  margin-bottom: clamp(1rem, 2.4vh, 1.8rem);
+  padding-left: 0.16em;
+}
+
+.title {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+/* Mask wraps each line so the entrance reveal slides up from behind it */
+.lineMask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.04em;
+}
+
+.line {
+  display: block;
+  font-size: clamp(3.4rem, 13vw, 11rem);
+  text-shadow: 0 0.06em 0.5em rgba(0, 0, 0, 0.45);
+  will-change: transform;
+}
+
+.lineAccent {
+  /* warm practical light catching the surname */
+  background: linear-gradient(
+    96deg,
+    var(--ink) 0%,
+    var(--orange-soft) 52%,
+    var(--orange) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  margin-top: clamp(1.4rem, 3vh, 2.2rem);
+  max-width: 40ch;
+  font-size: clamp(0.98rem, 1.5vw, 1.22rem);
+  line-height: 1.6;
+  color: var(--ink-dim);
+  font-weight: 400;
+}
+
+/* ---- Glass controls (bottom-right) --------------------------------- */
+.controls {
+  position: absolute;
+  z-index: 3;
+  right: clamp(1.2rem, 4vw, 3rem);
+  bottom: clamp(1.4rem, 4vh, 3rem);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.glassBtn {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  color: var(--ink);
+  cursor: pointer;
+  background: var(--glass);
+  border: 1px solid var(--glass-brd);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s var(--ease-cine), background 0.4s var(--ease-soft),
+    border-color 0.4s var(--ease-soft), color 0.4s var(--ease-soft);
+}
+
+.glassBtn:hover {
+  transform: translateY(-3px);
+  background: var(--glass-strong);
+  border-color: rgba(255, 165, 99, 0.6);
+}
+
+.glassBtn:active {
+  transform: translateY(-1px) scale(0.96);
+}
+
+.glassBtn[data-active="true"] {
+  color: var(--orange-soft);
+  border-color: rgba(255, 165, 99, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 22px rgba(255, 122, 47, 0.35);
+}
+
+/* ---- Sound hint badge ---------------------------------------------- */
+.hintWrap {
+  position: relative;
+  width: 0;
+}
+
+.hint {
+  position: absolute;
+  right: 0.4rem;
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--glass-strong);
+  border: 1px solid var(--glass-brd);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-soft), transform 0.6s var(--ease-cine);
+}
+
+.hint[data-show="true"] {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  animation: hintBreathe 2.6s ease-in-out infinite;
+}
+
+.hintDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 10px var(--orange);
+}
+
+@keyframes hintBreathe {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 122, 47, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(255, 122, 47, 0.08);
+  }
+}
+
+/* ---- Scroll indicator (bottom-center) ------------------------------ */
+.scrollCue {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: clamp(1.4rem, 4vh, 2.4rem);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--ink-dim);
+  transition: color 0.4s var(--ease-soft);
+}
+
+.scrollCue:hover {
+  color: var(--ink);
+}
+
+.scrollLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  padding-left: 0.4em;
+}
+
+.scrollTrack {
+  position: relative;
+  width: 1px;
+  height: 56px;
+  background: linear-gradient(
+    to bottom,
+    rgba(244, 239, 231, 0.06),
+    rgba(244, 239, 231, 0.32)
+  );
+  overflow: hidden;
+}
+
+.scrollPulse {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 40%;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, transparent, var(--orange));
+  animation: pulseDown 2.2s var(--ease-cine) infinite;
+}
+
+@keyframes pulseDown {
+  0% {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 150%);
+    opacity: 0;
+  }
+}
+
+/* ---- Responsive ---------------------------------------------------- */
+@media (max-width: 640px) {
+  .content {
+    bottom: clamp(7rem, 22vh, 12rem);
+    right: 1.2rem;
+  }
+  .subtitle {
+    max-width: 92%;
+  }
+  .scrollLabel {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    opacity: 1;
+    transform: none;
+  }
+  .scrollPulse,
+  .hint[data-show="true"] {
+    animation: none;
+  }
+}

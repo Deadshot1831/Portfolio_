@@ -1,0 +1,196 @@
+/* ============================================================
+   Contact / Footer — Cinematic Noir close
+   ============================================================ */
+
+.contact {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(180deg, var(--bg) 0%, #0a0808 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: clamp(5rem, 16vh, 11rem) 0 clamp(2rem, 5vh, 3rem);
+  overflow: hidden;
+}
+
+/* Warm practical light pooling up from the bottom edge */
+.glow {
+  position: absolute;
+  left: 50%;
+  bottom: -30%;
+  width: min(120vw, 70rem);
+  height: 60rem;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    closest-side,
+    var(--orange-glow) 0%,
+    transparent 72%
+  );
+  opacity: 0.5;
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+.inner {
+  position: relative;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.4rem, 6vw, 7rem);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--orange-soft);
+  margin-bottom: clamp(1.6rem, 4vh, 2.6rem);
+}
+
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 12px var(--orange);
+}
+
+/* ---- CTA ---- */
+.cta {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.6rem, 9vw, 7rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  max-width: 16ch;
+}
+
+.lineMask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.04em;
+}
+
+.line {
+  display: block;
+  will-change: transform;
+}
+
+.lineAccent {
+  background: linear-gradient(
+    96deg,
+    var(--ink) 0%,
+    var(--orange-soft) 50%,
+    var(--orange) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---- Email ---- */
+.email {
+  position: relative;
+  display: inline-block;
+  margin-top: clamp(2.4rem, 6vh, 4rem);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.emailUnderline {
+  position: absolute;
+  left: 0;
+  bottom: -0.15em;
+  width: 100%;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-cine);
+}
+
+.email:hover .emailUnderline {
+  transform: scaleX(1);
+}
+
+/* ---- Socials ---- */
+.socials {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  margin-top: clamp(2.4rem, 5vh, 3.4rem);
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-dim);
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: color 0.4s var(--ease-soft), border-color 0.4s var(--ease-soft),
+    background 0.4s var(--ease-soft), transform 0.5s var(--ease-cine);
+}
+
+.social:hover {
+  color: var(--ink);
+  border-color: rgba(255, 165, 99, 0.55);
+  background: rgba(255, 122, 47, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ---- Footer bar ---- */
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: clamp(4rem, 12vh, 8rem);
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+.built {
+  color: var(--ink-faint);
+}
+
+.top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  transition: color 0.4s var(--ease-soft);
+}
+
+.top:hover {
+  color: var(--orange-soft);
+}
+
+@media (max-width: 600px) {
+  .bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+}

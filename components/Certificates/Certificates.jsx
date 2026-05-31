@@ -17,8 +17,10 @@ const CERTIFICATES = [
     issuer: "Research Publication · Taylor & Francis",
     date: "DeceptiTech",
     image: null,
-    href: "https://github.com/PranitThomas/DeceptiTech",
-    cta: "View on GitHub",
+    links: [
+      { label: "Read the chapter", href: "/deceptitech-publication.pdf" },
+      { label: "GitHub", href: "https://github.com/PranitThomas/DeceptiTech" },
+    ],
     hue: "var(--orange)",
   },
   {
@@ -130,9 +132,43 @@ function Card({ cert }) {
         <span className={styles.dot}>·</span>
         {cert.date}
       </span>
+      {cert.links && (
+        <span className={styles.actions}>
+          {cert.links.map((l) => (
+            <a
+              key={l.label}
+              className={styles.actionLink}
+              href={l.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {l.label}
+              <svg viewBox="0 0 24 24" width="0.78em" height="0.78em" aria-hidden="true">
+                <path
+                  d="M7 17 17 7M9 7h8v8"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </a>
+          ))}
+        </span>
+      )}
     </span>
   );
 
+  // Multiple links -> non-anchor card with explicit action buttons.
+  if (cert.links) {
+    return (
+      <div className={styles.card}>
+        {visual}
+        {body}
+      </div>
+    );
+  }
   if (cert.href) {
     return (
       <a

@@ -42,4 +42,7 @@ next-env.d.ts
 
 # certificate source files (rendered to /public/cert-*.jpg)
 /public/*.pdf
+/public/*.doc
 /public/Screenshot*.png
+# ...but the publication proof PDF does ship
+!/public/deceptitech-publication.pdf

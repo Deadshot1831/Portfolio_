@@ -1,0 +1,234 @@
+/* ============================================================
+   Experience — scroll-driven timeline, Cinematic Noir
+   ============================================================ */
+
+.experience {
+  position: relative;
+  z-index: 2;
+  background: var(--bg);
+  padding: clamp(5rem, 14vh, 10rem) 0;
+}
+
+.inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.4rem, 6vw, 7rem);
+}
+
+.head {
+  margin-bottom: clamp(3rem, 8vh, 5rem);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--orange-soft);
+  margin-bottom: 1.4rem;
+}
+
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 12px var(--orange);
+}
+
+.title {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 600;
+  font-size: clamp(2.4rem, 7vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+/* ---- Timeline ---- */
+.timeline {
+  position: relative;
+}
+
+.rail {
+  position: absolute;
+  left: 9px;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.railFill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--orange), var(--blue));
+  transform: scaleY(0);
+  transform-origin: top;
+  box-shadow: 0 0 10px var(--orange-glow);
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.6rem, 6vh, 4.2rem);
+}
+
+.item {
+  position: relative;
+  padding-left: clamp(2.6rem, 5vw, 4rem);
+}
+
+.dot {
+  position: absolute;
+  left: 9px;
+  top: 0.5rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-elev);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.dotCurrent {
+  background: var(--orange);
+  border-color: var(--orange);
+  box-shadow: 0 0 0 5px rgba(255, 122, 47, 0.12), 0 0 16px var(--orange);
+  animation: dotPulse 2.6s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 5px rgba(255, 122, 47, 0.12), 0 0 16px var(--orange);
+  }
+  50% {
+    box-shadow: 0 0 0 9px rgba(255, 122, 47, 0.05), 0 0 22px var(--orange);
+  }
+}
+
+/* ---- Content ---- */
+.period {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange-soft);
+}
+
+.live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+  background: rgba(255, 122, 47, 0.14);
+  border: 1px solid rgba(255, 165, 99, 0.4);
+}
+
+.live::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 8px var(--orange);
+}
+
+.role {
+  margin-top: 0.7rem;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3.2vw, 2.3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.sep {
+  margin: 0 0.5rem;
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+
+.company {
+  color: var(--orange-soft);
+}
+
+.points {
+  list-style: none;
+  margin-top: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 64ch;
+}
+
+.point {
+  position: relative;
+  padding-left: 1.3rem;
+  font-size: clamp(0.98rem, 1.4vw, 1.12rem);
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+
+.point::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  opacity: 0.7;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.3rem;
+}
+
+.tag {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-dim);
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+@media (max-width: 520px) {
+  .role {
+    line-height: 1.2;
+  }
+  .sep {
+    display: none;
+  }
+  .company {
+    display: block;
+    margin-top: 0.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dotCurrent {
+    animation: none;
+  }
+}

@@ -144,12 +144,9 @@ export default function VideoIntro({
     const fg = foregroundRef.current;
     if (!fg) return;
     const next = !fg.muted;
+    // Only toggle audio — never start/stop playback here.
     fg.muted = next;
-    if (!next) {
-      // Unmuting may require an explicit play() in some browsers.
-      fg.play().catch(() => {});
-      setShowHint(false);
-    }
+    if (!next) setShowHint(false);
     setIsMuted(next);
   };
 
@@ -188,6 +185,8 @@ export default function VideoIntro({
           playsInline
           preload="auto"
           onCanPlay={() => setIsReady(true)}
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
           onEnded={handleEnded}
         />
         <div className={styles.grade} aria-hidden="true" />

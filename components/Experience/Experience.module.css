@@ -156,6 +156,7 @@
   max-width: clamp(180px, 26vw, 270px);
   padding: 12px 22px;
   border-radius: 16px;
+  overflow: hidden;
   background: #f4f1ea;
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);

@@ -12,27 +12,43 @@ gsap.registerPlugin(ScrollTrigger);
 // public verification/credential URL to make the card clickable.
 const CERTIFICATES = [
   {
-    title: "Certificate Title",
-    issuer: "Issuing Organization",
-    date: "2025",
-    image: null, // e.g. "/cert-ml.jpg"
-    href: null, // e.g. "https://coursera.org/verify/XXXX"
-    hue: "var(--orange)",
-  },
-  {
-    title: "Certificate Title",
-    issuer: "Issuing Organization",
-    date: "2025",
-    image: null,
-    href: null,
+    title: "Azure AI Engineer Associate",
+    issuer: "Microsoft",
+    date: "May 2026",
+    image: "/cert-azure-ai-engineer.jpg",
+    href: "/cert-azure-ai-engineer.jpg",
     hue: "var(--blue)",
   },
   {
-    title: "Certificate Title",
-    issuer: "Issuing Organization",
-    date: "2024",
-    image: null,
-    href: null,
+    title: "Fabric Data Engineer Associate",
+    issuer: "Microsoft",
+    date: "Dec 2025",
+    image: "/cert-fabric-data-engineer.jpg",
+    href: "/cert-fabric-data-engineer.jpg",
+    hue: "var(--blue)",
+  },
+  {
+    title: "OCI 2025 Generative AI Professional",
+    issuer: "Oracle",
+    date: "Oct 2025",
+    image: "/cert-oci-genai.jpg",
+    href: "/cert-oci-genai.jpg",
+    hue: "var(--orange)",
+  },
+  {
+    title: "OCI 2025 Foundations Associate",
+    issuer: "Oracle",
+    date: "Oct 2025",
+    image: "/cert-oci-foundations.jpg",
+    href: "/cert-oci-foundations.jpg",
+    hue: "var(--orange)",
+  },
+  {
+    title: "Deep Learning for Autonomous Vehicles",
+    issuer: "Phemesoft · Remote Mentoring Internship",
+    date: "2025",
+    image: "/cert-phemesoft-dl.jpg",
+    href: "/cert-phemesoft-dl.jpg",
     hue: "#ffb070",
   },
 ];

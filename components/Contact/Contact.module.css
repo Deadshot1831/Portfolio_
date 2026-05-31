@@ -137,25 +137,75 @@
 }
 
 .social {
+  --brand: var(--orange-soft);
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.6rem;
+  overflow: hidden;
   font-family: var(--font-mono), monospace;
   font-size: 0.8rem;
   letter-spacing: 0.06em;
   color: var(--ink-dim);
-  padding: 0.6rem 1rem;
+  padding: 0.7rem 1.15rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: color 0.4s var(--ease-soft), border-color 0.4s var(--ease-soft),
-    background 0.4s var(--ease-soft), transform 0.5s var(--ease-cine);
+  background: rgba(255, 255, 255, 0.02);
+  transition: color 0.45s var(--ease-soft), border-color 0.45s var(--ease-soft),
+    transform 0.55s var(--ease-cine), box-shadow 0.55s var(--ease-cine);
 }
 
-.social:hover {
+/* Soft brand-tinted glow that blooms from behind the pill on hover */
+.socialGlow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    120% 140% at 18% 50%,
+    color-mix(in srgb, var(--brand) 22%, transparent) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s var(--ease-soft), transform 0.6s var(--ease-cine);
+}
+
+.socialIcon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  color: var(--ink-dim);
+  transition: color 0.45s var(--ease-soft), transform 0.55s var(--ease-cine);
+}
+
+.socialLabel {
+  position: relative;
+  z-index: 1;
+}
+
+.social:hover,
+.social:focus-visible {
   color: var(--ink);
-  border-color: rgba(255, 165, 99, 0.55);
-  background: rgba(255, 122, 47, 0.06);
-  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--brand) 65%, transparent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--brand) 28%, transparent);
+}
+
+.social:hover .socialIcon,
+.social:focus-visible .socialIcon {
+  color: var(--brand);
+  transform: scale(1.18) translateY(-1px);
+}
+
+.social:hover .socialGlow,
+.social:focus-visible .socialGlow {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.social:active {
+  transform: translateY(-1px) scale(0.97);
 }
 
 /* ---- Footer bar ---- */

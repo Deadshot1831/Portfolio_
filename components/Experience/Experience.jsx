@@ -43,7 +43,6 @@ const EXPERIENCE = [
     period: "Jun 2024 — Aug 2024",
     logo: "/Aftershoot-logo.png",
     logoDark: true,
-    logoScale: 1.55, // crops the heavy empty margin baked into this logo
     website: null, // add company URL here later
     points: [
       "Built machine learning models for image-processing tasks using Python, NumPy and Scikit-learn.",
@@ -60,14 +59,7 @@ function Logo({ entry }) {
       className={`${styles.logo}${entry.logoDark ? ` ${styles.logoDark}` : ""}`}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={entry.logo}
-        alt={`${entry.company} logo`}
-        loading="lazy"
-        style={
-          entry.logoScale ? { transform: `scale(${entry.logoScale})` } : undefined
-        }
-      />
+      <img src={entry.logo} alt={`${entry.company} logo`} loading="lazy" />
     </span>
   );
 

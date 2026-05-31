@@ -10,13 +10,13 @@ gsap.registerPlugin(ScrollTrigger);
 // --- Realistic placeholder projects. Swap with your real work. ---------
 const PROJECTS = [
   {
-    name: "Sentinel",
+    name: "DeceptiTech",
     year: "2025",
-    role: "ML Engineering",
+    role: "AI · Full-Stack",
     blurb:
-      "A realtime object detection and tracking pipeline running across multiple camera feeds at sub-100ms latency, deployed to the cloud.",
-    tags: ["PyTorch", "YOLOv8", "OpenCV"],
-    href: "#",
+      "Audits any website for manipulative dark patterns — fake urgency, scarcity, confirmshaming and more — by crawling it with headless Chromium and pairing rule-based detectors with a local-LLM second pass.",
+    tags: ["LLM", "Headless Chromium", "NLP"],
+    href: "https://dark-pattern-detector-rouge.vercel.app",
     hue: "var(--orange)",
     hue2: "#ff4d6d",
   },
@@ -119,7 +119,14 @@ export default function Work() {
         <ol className={styles.list}>
           {PROJECTS.map((p, i) => (
             <li key={p.name} className={styles.item} data-reveal>
-              <a className={styles.card} href={p.href} aria-label={`${p.name} — ${p.role}`}>
+              <a
+                className={styles.card}
+                href={p.href}
+                aria-label={`${p.name} — ${p.role}`}
+                {...(p.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              >
                 <div
                   className={styles.cover}
                   style={{

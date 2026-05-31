@@ -107,10 +107,11 @@
 
 .portraitImg {
   position: absolute;
-  inset: -6% 0;
+  inset: -11% 0;
   width: 100%;
-  height: 112%;
+  height: 122%;
   object-fit: cover;
+  object-position: center 22%;
   will-change: transform;
 }
 

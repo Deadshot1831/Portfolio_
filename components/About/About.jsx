@@ -91,16 +91,20 @@ export default function About({
           ease: "expo.out",
           scrollTrigger: { trigger: frame, start: "top 85%" },
         });
-        gsap.to(q(`.${styles.portraitImg}`)[0], {
-          yPercent: -12,
-          ease: "none",
-          scrollTrigger: {
-            trigger: frame,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
+        gsap.fromTo(
+          q(`.${styles.portraitImg}`)[0],
+          { yPercent: 7 },
+          {
+            yPercent: -7,
+            ease: "none",
+            scrollTrigger: {
+              trigger: frame,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          }
+        );
       }
     }, rootRef);
 

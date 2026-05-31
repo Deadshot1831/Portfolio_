@@ -15,7 +15,7 @@ const EXPERIENCE = [
     current: true,
     logo: "/Valiance-logo.png",
     logoDark: false,
-    website: null, // add company URL here later
+    website: "https://valiancesolutions.com/",
     points: [
       "Collected and preprocessed large datasets using Python, Pandas and NumPy for machine learning training pipelines.",
       "Implemented regression and classification models and evaluated performance using cross-validation and statistical metrics.",
@@ -30,7 +30,7 @@ const EXPERIENCE = [
     logo: "/IBM-logo.png",
     logoDark: false,
     logoScale: 2.2, // fills the large transparent margin around the mark
-    website: null, // add company URL here later
+    website: "https://www.ibm.com/in-en",
     points: [
       "Developed Python scripts for data processing, automation and performance optimization.",
       "Worked with SQL databases to extract, transform and analyze large datasets.",
@@ -45,7 +45,7 @@ const EXPERIENCE = [
     logo: "/Aftershoot-logo.png",
     logoDark: true,
     logoScale: 2, // crops the heavy empty margin baked into this logo
-    website: null, // add company URL here later
+    website: "https://aftershoot.com/",
     points: [
       "Built machine learning models for image-processing tasks using Python, NumPy and Scikit-learn.",
       "Performed feature engineering, dataset preparation and model evaluation using accuracy and validation metrics.",

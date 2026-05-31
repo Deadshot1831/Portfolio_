@@ -29,7 +29,7 @@ const EXPERIENCE = [
     period: "Jul 2025 — Aug 2025",
     logo: "/IBM-logo.png",
     logoDark: false,
-    logoScale: 1.35, // fills the transparent margin around the mark
+    logoScale: 2.2, // fills the large transparent margin around the mark
     website: null, // add company URL here later
     points: [
       "Developed Python scripts for data processing, automation and performance optimization.",
@@ -44,7 +44,7 @@ const EXPERIENCE = [
     period: "Jun 2024 — Aug 2024",
     logo: "/Aftershoot-logo.png",
     logoDark: true,
-    logoScale: 1.55, // crops the heavy empty margin baked into this logo
+    logoScale: 2, // crops the heavy empty margin baked into this logo
     website: null, // add company URL here later
     points: [
       "Built machine learning models for image-processing tasks using Python, NumPy and Scikit-learn.",
@@ -66,7 +66,9 @@ function Logo({ entry }) {
         alt={`${entry.company} logo`}
         loading="lazy"
         style={
-          entry.logoScale ? { transform: `scale(${entry.logoScale})` } : undefined
+          entry.logoScale
+            ? { height: `${entry.logoScale * 100}%`, width: "auto" }
+            : undefined
         }
       />
     </span>

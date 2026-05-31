@@ -13,6 +13,9 @@ const EXPERIENCE = [
     company: "Valiance Solutions",
     period: "Jan 2026 — Present",
     current: true,
+    logo: "/Valiance-logo.png",
+    logoDark: false,
+    website: null, // add company URL here later
     points: [
       "Collected and preprocessed large datasets using Python, Pandas and NumPy for machine learning training pipelines.",
       "Implemented regression and classification models and evaluated performance using cross-validation and statistical metrics.",
@@ -24,6 +27,9 @@ const EXPERIENCE = [
     role: "Software Intern",
     company: "IBM",
     period: "Jul 2025 — Aug 2025",
+    logo: "/IBM-logo.png",
+    logoDark: false,
+    website: null, // add company URL here later
     points: [
       "Developed Python scripts for data processing, automation and performance optimization.",
       "Worked with SQL databases to extract, transform and analyze large datasets.",
@@ -35,6 +41,9 @@ const EXPERIENCE = [
     role: "AI Intern",
     company: "Aftershoot",
     period: "Jun 2024 — Aug 2024",
+    logo: "/Aftershoot-logo.png",
+    logoDark: true,
+    website: null, // add company URL here later
     points: [
       "Built machine learning models for image-processing tasks using Python, NumPy and Scikit-learn.",
       "Performed feature engineering, dataset preparation and model evaluation using accuracy and validation metrics.",
@@ -43,6 +52,32 @@ const EXPERIENCE = [
     tags: ["Python", "Scikit-learn", "Computer Vision"],
   },
 ];
+
+function Logo({ entry }) {
+  const plate = (
+    <span
+      className={`${styles.logo}${entry.logoDark ? ` ${styles.logoDark}` : ""}`}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={entry.logo} alt={`${entry.company} logo`} loading="lazy" />
+    </span>
+  );
+
+  if (entry.website) {
+    return (
+      <a
+        className={styles.logoLink}
+        href={entry.website}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${entry.company} website`}
+      >
+        {plate}
+      </a>
+    );
+  }
+  return plate;
+}
 
 export default function Experience() {
   const rootRef = useRef(null);
@@ -128,32 +163,36 @@ export default function Experience() {
                   aria-hidden="true"
                 />
                 <div className={styles.content}>
-                  <span className={styles.period}>
-                    {e.period}
-                    {e.current && <span className={styles.live}>Now</span>}
-                  </span>
+                  <div className={styles.main}>
+                    <span className={styles.period}>
+                      {e.period}
+                      {e.current && <span className={styles.live}>Now</span>}
+                    </span>
 
-                  <h3 className={styles.role}>
-                    {e.role}
-                    <span className={styles.sep}>·</span>
-                    <span className={styles.company}>{e.company}</span>
-                  </h3>
+                    <h3 className={styles.role}>
+                      {e.role}
+                      <span className={styles.sep}>·</span>
+                      <span className={styles.company}>{e.company}</span>
+                    </h3>
 
-                  <ul className={styles.points}>
-                    {e.points.map((p, j) => (
-                      <li key={j} className={styles.point}>
-                        {p}
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className={styles.points}>
+                      {e.points.map((p, j) => (
+                        <li key={j} className={styles.point}>
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
 
-                  <ul className={styles.tags}>
-                    {e.tags.map((t) => (
-                      <li key={t} className={styles.tag}>
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className={styles.tags}>
+                      {e.tags.map((t) => (
+                        <li key={t} className={styles.tag}>
+                          {t}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <Logo entry={e} />
                 </div>
               </li>
             ))}

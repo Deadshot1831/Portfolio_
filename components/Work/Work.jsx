@@ -17,6 +17,7 @@ const PROJECTS = [
       "Audits any website for manipulative dark patterns — fake urgency, scarcity, confirmshaming and more — by crawling it with headless Chromium and pairing rule-based detectors with a local-LLM second pass.",
     tags: ["LLM", "Headless Chromium", "NLP"],
     href: "https://dark-pattern-detector-rouge.vercel.app",
+    preview: "/preview-deceptitech.jpg",
     hue: "var(--orange)",
     hue2: "#ff4d6d",
   },
@@ -25,9 +26,10 @@ const PROJECTS = [
     year: "2025",
     role: "AI · Security",
     blurb:
-      "An AI-powered threat-modeling tool that turns a system or application description into a structured set of likely security threats and mitigations — helping teams reason about risk early.",
-    tags: ["LLM", "Threat Modeling", "Security"],
+      "Maps an LLM/GenAI app's architecture and detects threats across OWASP LLM-10, STRIDE and MITRE ATLAS, then generates professional security artifacts — all from a single interface.",
+    tags: ["OWASP LLM-10", "STRIDE", "MITRE ATLAS"],
     href: "https://ai-in-cybersecurity-woad.vercel.app",
+    preview: "/preview-threat-modeler.jpg",
     hue: "var(--blue)",
     hue2: "#7c5cff",
   },
@@ -83,8 +85,10 @@ export default function Work() {
 
       // Slow parallax drift on each project cover.
       q(`.${styles.cover}`).forEach((el) => {
+        const media = el.querySelector(`.${styles.coverMedia}`);
+        if (!media) return;
         gsap.fromTo(
-          el.querySelector(`.${styles.coverInner}`),
+          media,
           { yPercent: -8 },
           {
             yPercent: 8,
@@ -134,12 +138,23 @@ export default function Work() {
                     "--hue2": p.hue2,
                   }}
                 >
-                  <div className={styles.coverInner}>
-                    <span className={styles.index}>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className={styles.monogram}>{p.name[0]}</span>
-                  </div>
+                  {p.preview ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      className={`${styles.coverImg} ${styles.coverMedia}`}
+                      src={p.preview}
+                      alt={`${p.name} homepage preview`}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className={`${styles.coverInner} ${styles.coverMedia}`}>
+                      <span className={styles.monogram}>{p.name[0]}</span>
+                    </div>
+                  )}
+                  <span className={styles.index}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className={styles.coverShade} aria-hidden="true" />
                 </div>
 
                 <div className={styles.body}>

@@ -20,3 +20,10 @@ To use different filenames, pass props to <VideoIntro videoSrc="..." poster="...
 - `about-portrait.jpg` — portrait for the About section (optional).
                          Falls back to a warm gradient placeholder if absent.
                          Recommended ~4:5 portrait crop.
+
+## Certificates section
+
+Add certificate images here (e.g. `cert-ml.jpg`) and reference them in
+`components/Certificates/Certificates.jsx` via the `image` field, with an
+optional `href` verification/credential URL. Without an image, a card
+shows a gradient placeholder with an award icon.

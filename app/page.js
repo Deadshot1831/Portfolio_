@@ -2,6 +2,7 @@ import VideoIntro from "@/components/VideoIntro/VideoIntro";
 import About from "@/components/About/About";
 import Experience from "@/components/Experience/Experience";
 import Work from "@/components/Work/Work";
+import Certificates from "@/components/Certificates/Certificates";
 import Contact from "@/components/Contact/Contact";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <About />
       <Experience />
       <Work />
+      <Certificates />
       <Contact />
     </main>
   );

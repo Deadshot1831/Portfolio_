@@ -102,13 +102,30 @@
 
 /* ---- Email ---- */
 .email {
-  position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
   margin-top: clamp(1.8rem, 4vh, 2.6rem);
   font-family: var(--font-display), sans-serif;
   font-size: clamp(1.4rem, 3.5vw, 2.4rem);
   font-weight: 500;
   color: var(--ink);
+}
+
+.emailIcon {
+  display: inline-flex;
+  color: var(--orange-soft);
+  transition: color 0.45s var(--ease-soft), transform 0.55s var(--ease-cine);
+}
+
+.email:hover .emailIcon,
+.email:focus-visible .emailIcon {
+  color: var(--orange);
+  transform: translateY(-2px) scale(1.08) rotate(-4deg);
+}
+
+.emailText {
+  position: relative;
 }
 
 .emailUnderline {
@@ -123,7 +140,8 @@
   transition: transform 0.6s var(--ease-cine);
 }
 
-.email:hover .emailUnderline {
+.email:hover .emailUnderline,
+.email:focus-visible .emailUnderline {
   transform: scaleX(1);
 }
 

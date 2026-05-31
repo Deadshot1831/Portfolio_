@@ -124,8 +124,30 @@ export default function Contact({
         </p>
 
         <a className={styles.email} href={`mailto:${email}`} data-reveal>
-          {email}
-          <span className={styles.emailUnderline} aria-hidden="true" />
+          <span className={styles.emailIcon} aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="0.8em" height="0.8em" fill="none">
+              <rect
+                x="3"
+                y="5"
+                width="18"
+                height="14"
+                rx="2.5"
+                stroke="currentColor"
+                strokeWidth="1.6"
+              />
+              <path
+                d="m4 7.5 8 5.5 8-5.5"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+          <span className={styles.emailText}>
+            {email}
+            <span className={styles.emailUnderline} aria-hidden="true" />
+          </span>
         </a>
 
         <ul className={styles.socials}>

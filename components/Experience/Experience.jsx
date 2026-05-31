@@ -91,9 +91,12 @@ export default function Experience() {
       const q = self.selector;
       const fill = q(`.${styles.railFill}`)[0];
 
+      const dots = q(`.${styles.dot}`);
+
       if (reduced) {
         gsap.set(q("[data-reveal]"), { opacity: 1, y: 0 });
         gsap.set(fill, { scaleY: 1 });
+        dots.forEach((d) => d.classList.add(styles.dotActive));
         return;
       }
 
@@ -121,10 +124,35 @@ export default function Experience() {
               start: "top 72%",
               end: "bottom 78%",
               scrub: true,
+              invalidateOnRefresh: true,
             },
           }
         );
       }
+
+      // Each marker lights up while its entry is the one being read.
+      q(`.${styles.item}`).forEach((item) => {
+        const dot = item.querySelector(`.${styles.dot}`);
+        if (!dot) return;
+        ScrollTrigger.create({
+          trigger: item,
+          start: "top 64%",
+          end: "bottom 42%",
+          onToggle: (self) =>
+            dot.classList.toggle(styles.dotActive, self.isActive),
+        });
+      });
+
+      // Logos change layout height as they load — recalc trigger positions.
+      const imgs = rootRef.current.querySelectorAll("img");
+      imgs.forEach((img) => {
+        if (!img.complete) {
+          img.addEventListener("load", () => ScrollTrigger.refresh(), {
+            once: true,
+          });
+        }
+      });
+      ScrollTrigger.refresh();
     }, rootRef);
 
     return () => ctx.revert();

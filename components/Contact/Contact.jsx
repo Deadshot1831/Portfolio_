@@ -14,6 +14,7 @@ const SOCIALS = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/yashwant-yadav-174aa12b2/",
   },
+  { label: "LeetCode", href: "https://leetcode.com/u/Deadshot1831/" },
 ];
 
 export default function Contact({

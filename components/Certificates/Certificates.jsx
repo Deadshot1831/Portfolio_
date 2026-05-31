@@ -12,6 +12,16 @@ gsap.registerPlugin(ScrollTrigger);
 // public verification/credential URL to make the card clickable.
 const CERTIFICATES = [
   {
+    title:
+      "User Interface Ethics Evaluation: Unmasking Dark Patterns with Intelligent Systems",
+    issuer: "Research Publication · Taylor & Francis",
+    date: "DeceptiTech",
+    image: null,
+    href: "https://github.com/PranitThomas/DeceptiTech",
+    cta: "View on GitHub",
+    hue: "var(--orange)",
+  },
+  {
     title: "Azure AI Engineer Associate",
     issuer: "Microsoft",
     date: "May 2026",
@@ -96,7 +106,7 @@ function Card({ cert }) {
       )}
       {cert.href && (
         <span className={styles.view} aria-hidden="true">
-          View credential
+          {cert.cta || "View credential"}
           <svg viewBox="0 0 24 24" width="0.8em" height="0.8em">
             <path
               d="M7 17 17 7M9 7h8v8"

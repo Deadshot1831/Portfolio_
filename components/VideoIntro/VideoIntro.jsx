@@ -93,6 +93,11 @@ export default function VideoIntro({
     if (!fg) return;
 
     if (fg.paused) {
+      // If it already finished, replay from the very start.
+      if (fg.ended) {
+        fg.currentTime = 0;
+        if (bg) bg.currentTime = 0;
+      }
       fg.play();
       bg?.play();
       setIsPlaying(true);
@@ -101,6 +106,12 @@ export default function VideoIntro({
       bg?.pause();
       setIsPlaying(false);
     }
+  };
+
+  // Plays once on load — when it finishes, stop and reset the controls.
+  const handleEnded = () => {
+    ambientRef.current?.pause();
+    setIsPlaying(false);
   };
 
   const toggleMute = () => {
@@ -135,7 +146,6 @@ export default function VideoIntro({
           src={videoSrc}
           poster={poster}
           autoPlay
-          loop
           muted
           playsInline
           preload="auto"
@@ -148,11 +158,11 @@ export default function VideoIntro({
           src={videoSrc}
           poster={poster}
           autoPlay
-          loop
           muted={isMuted}
           playsInline
           preload="auto"
           onCanPlay={() => setIsReady(true)}
+          onEnded={handleEnded}
         />
         <div className={styles.grade} aria-hidden="true" />
       </div>

@@ -21,8 +21,8 @@ export default function VideoIntro({
   const contentRef = useRef(null);
 
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
-  const [showHint, setShowHint] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
+  const [showHint, setShowHint] = useState(false);
   const [isReady, setIsReady] = useState(false);
 
   // ---- GSAP cinematic entrance --------------------------------------
@@ -77,6 +77,32 @@ export default function VideoIntro({
     // Safety net: if the asset is missing/slow, reveal anyway.
     const fallback = setTimeout(() => setIsReady(true), 1200);
     return () => clearTimeout(fallback);
+  }, []);
+
+  // ---- Try to autoplay with sound; fall back to muted if blocked ----
+  // Browsers only allow unmuted autoplay after user engagement, so we
+  // attempt sound first and gracefully degrade to muted + the hint.
+  useEffect(() => {
+    const fg = foregroundRef.current;
+    const bg = ambientRef.current;
+    if (!fg) return;
+
+    fg.muted = false;
+    const attempt = fg.play();
+    if (attempt && typeof attempt.then === "function") {
+      attempt
+        .then(() => {
+          bg?.play().catch(() => {});
+        })
+        .catch(() => {
+          // Unmuted autoplay refused — play muted and invite a tap.
+          fg.muted = true;
+          setIsMuted(true);
+          setShowHint(true);
+          fg.play().catch(() => {});
+          bg?.play().catch(() => {});
+        });
+    }
   }, []);
 
   // ---- Auto-hide the "tap for sound" hint ---------------------------

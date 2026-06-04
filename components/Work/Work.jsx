@@ -33,28 +33,6 @@ const PROJECTS = [
     hue: "var(--blue)",
     hue2: "#7c5cff",
   },
-  {
-    name: "Vision",
-    year: "2024",
-    role: "AI Engineering",
-    blurb:
-      "An end-to-end computer vision service for image classification and segmentation, packaged behind a clean, versioned API.",
-    tags: ["TensorFlow", "FastAPI", "Docker"],
-    href: "#",
-    hue: "#ffb070",
-    hue2: "var(--orange)",
-  },
-  {
-    name: "Scale",
-    year: "2023",
-    role: "ML Platform",
-    blurb:
-      "Cloud infrastructure for serving models at scale — autoscaling inference, live monitoring and automated drift detection.",
-    tags: ["AWS", "Kubernetes", "MLOps"],
-    href: "#",
-    hue: "#4dd6c4",
-    hue2: "var(--blue)",
-  },
 ];
 
 export default function Work() {

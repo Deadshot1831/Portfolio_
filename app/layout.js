@@ -22,9 +22,9 @@ const body = Geist({
 });
 
 export const metadata = {
-  title: "Yashwant Yadav — Frontend Engineer",
+  title: "Yashwant Yadav — AI Engineer",
   description:
-    "Cinematic portfolio of Yashwant Yadav — frontend engineer crafting immersive, high-craft web experiences.",
+    "Portfolio of Yashwant Yadav — AI & software engineer building machine learning and computer vision systems that turn data into real-world decisions.",
 };
 
 export const viewport = {

@@ -242,10 +242,6 @@
   color: var(--ink-faint);
 }
 
-.built {
-  color: var(--ink-faint);
-}
-
 .top {
   display: inline-flex;
   align-items: center;

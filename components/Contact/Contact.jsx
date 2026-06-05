@@ -175,9 +175,6 @@ export default function Contact({
           <span className={styles.copyline}>
             © {year} {name}
           </span>
-          <span className={styles.built}>
-            Built with Next.js · Three.js · GSAP
-          </span>
           <button type="button" className={styles.top} onClick={toTop}>
             Back to top
             <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true">

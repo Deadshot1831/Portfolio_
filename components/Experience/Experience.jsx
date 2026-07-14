@@ -9,10 +9,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const EXPERIENCE = [
   {
-    role: "AI Intern",
+    role: "Data Scientist Intern",
     company: "Valiance Solutions",
-    period: "Jan 2026 — Present",
-    current: true,
+    period: "Jan 2026 — Jul 2026",
+    certificate: "/valiance-internship-certificate.pdf",
     logo: "/Valiance-logo.png",
     logoDark: false,
     website: "https://valiancesolutions.com/",
@@ -206,6 +206,26 @@ export default function Experience() {
                     <span className={styles.period}>
                       {e.period}
                       {e.current && <span className={styles.live}>Now</span>}
+                      {e.certificate && (
+                        <a
+                          className={styles.certBadge}
+                          href={e.certificate}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Certificate
+                          <svg viewBox="0 0 24 24" width="0.9em" height="0.9em" aria-hidden="true">
+                            <path
+                              d="M7 17 17 7M9 7h8v8"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              fill="none"
+                            />
+                          </svg>
+                        </a>
+                      )}
                     </span>
 
                     <h3 className={styles.role}>

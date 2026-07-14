@@ -199,6 +199,26 @@
   border: 1px solid rgba(255, 165, 99, 0.4);
 }
 
+.certBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  color: var(--orange-soft);
+  background: rgba(255, 122, 47, 0.08);
+  border: 1px solid rgba(255, 165, 99, 0.4);
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.certBadge:hover {
+  background: rgba(255, 122, 47, 0.18);
+  color: var(--ink);
+}
+
 .live::before {
   content: "";
   width: 6px;

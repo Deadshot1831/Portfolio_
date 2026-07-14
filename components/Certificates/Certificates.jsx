@@ -24,6 +24,15 @@ const CERTIFICATES = [
     hue: "var(--orange)",
   },
   {
+    title: "Data Scientist Intern — Experience Letter",
+    issuer: "Valiance Solutions",
+    date: "Jul 2026",
+    image: "/cert-valiance-internship.jpg",
+    href: "/valiance-internship-certificate.pdf",
+    cta: "View certificate",
+    hue: "var(--blue)",
+  },
+  {
     title: "Azure AI Engineer Associate",
     issuer: "Microsoft",
     date: "May 2026",

@@ -46,3 +46,5 @@ next-env.d.ts
 /public/Screenshot*.png
 # ...but the publication proof PDF does ship
 !/public/deceptitech-publication.pdf
+# ...and the Valiance internship certificate is linked from Experience + Certificates
+!/public/valiance-internship-certificate.pdf

@@ -38,21 +38,6 @@ const EXPERIENCE = [
     ],
     tags: ["Python", "SQL", "Automation", "Agile"],
   },
-  {
-    role: "AI Intern",
-    company: "Aftershoot",
-    period: "Jun 2024 — Aug 2024",
-    logo: "/Aftershoot-logo.png",
-    logoDark: true,
-    logoScale: 2, // crops the heavy empty margin baked into this logo
-    website: "https://aftershoot.com/",
-    points: [
-      "Built machine learning models for image-processing tasks using Python, NumPy and Scikit-learn.",
-      "Performed feature engineering, dataset preparation and model evaluation using accuracy and validation metrics.",
-      "Assisted in integrating trained models into backend services for real-time prediction.",
-    ],
-    tags: ["Python", "Scikit-learn", "Computer Vision"],
-  },
 ];
 
 function Logo({ entry }) {

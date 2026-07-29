@@ -48,3 +48,5 @@ next-env.d.ts
 !/public/deceptitech-publication.pdf
 # ...and the Valiance internship certificate is linked from Experience + Certificates
 !/public/valiance-internship-certificate.pdf
+# ...and the SORT SMART copyright certificate is linked from Certificates
+!/public/rocsort-smart-publication.pdf

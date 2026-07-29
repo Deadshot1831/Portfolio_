@@ -24,6 +24,16 @@ const CERTIFICATES = [
     hue: "var(--orange)",
   },
   {
+    title:
+      "SORT SMART: An Intelligent Deep Learning Framework for Automated Waste Classification and Sustainable Disposal",
+    issuer: "Copyright Office, Government of India",
+    date: "Jul 2026",
+    image: "/cert-rocsort-smart.jpg",
+    href: "/rocsort-smart-publication.pdf",
+    cta: "View certificate",
+    hue: "var(--orange)",
+  },
+  {
     title: "Data Scientist Intern — Experience Letter",
     issuer: "Valiance Solutions",
     date: "Jul 2026",

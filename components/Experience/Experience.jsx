@@ -27,6 +27,7 @@ const EXPERIENCE = [
     role: "Software Intern",
     company: "IBM",
     period: "Jul 2025 — Aug 2025",
+    certificate: "/ibm-internship-certificate.pdf",
     logo: "/IBM-logo.png",
     logoDark: false,
     logoScale: 2.2, // fills the large transparent margin around the mark

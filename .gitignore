@@ -50,3 +50,5 @@ next-env.d.ts
 !/public/valiance-internship-certificate.pdf
 # ...and the SORT SMART copyright certificate is linked from Certificates
 !/public/rocsort-smart-publication.pdf
+# ...and the IBM internship certificate is linked from Experience
+!/public/ibm-internship-certificate.pdf

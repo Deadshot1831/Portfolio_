@@ -56,3 +56,5 @@ components/
 Built with care for performance and accessibility: capped pixel ratio, rAF
 pauses on tab-hide, full Three.js resource disposal on unmount, and a
 `prefers-reduced-motion` path throughout.
+
+End of File
